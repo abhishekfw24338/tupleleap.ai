@@ -265,7 +265,11 @@ nav a {
 
 
 /* Responsive */
-
+@media screen and (max-width: 1000px){
+    .demo2{
+        height: auto;
+    }
+}
 
 @media screen and (max-width: 854px) {
     nav {
