@@ -1,0 +1,355 @@
+/* Navigation */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    content: '';
+    background: #000;
+    background-image: url(bg-2.png);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+
+nav {
+    /* background-color: black; */
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+/* Hamburger Nav bar */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.left-side img {
+    width: 25vw;
+    height: 10vh;
+    object-fit: cover;
+}
+
+.menu {
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 80px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19.2px;
+}
+
+
+
+.rl {
+    width: 80%;
+    z-index: 1;
+}
+
+.rl ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* .rr {
+    width: 20%;
+    z-index: 1;
+}
+
+.rr ul {
+    width: auto;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+} */
+
+.bg-login {
+    width: 60px;
+    background-color: #262626E5;
+    border-radius: 20px;
+    text-align: center;
+    height: 22px;
+    padding: 5px;
+}
+
+/* Main */
+
+.heading {
+    color: white;
+    text-align: center;
+    margin-top: 9%;
+    font-family: 'Michroma';
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 64px;
+    position: relative;
+    /* z-index: 1; */
+}
+
+.green {
+    color: #2DDB81;
+}
+
+/* hex- image */
+
+.hex-img {
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+}
+
+/* Footer */
+
+/* About */
+.left-footer {
+    /* display: flex; */
+    margin-top: 120px;
+    font-family: 'Michroma';
+    align-items: end;
+    position: relative;
+
+}
+
+/* About and Product Sections */
+.about-1, .product, .customer{
+    width: 85%;
+    opacity: 0;
+    transform: translateY(20px); /* Initial position for smooth transition */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 1s cubic-bezier(.5,0,.82,1), transform 1s cubic-bezier(.5,0,.82,1), visibility 0s 1s; /*Smooth transition*/
+   
+}
+
+/* When the "visible" class is added, make the section visible */
+.about-1.visible, .product.visible, .customer.visible{
+    opacity: 1;
+    transform: translateY(0); /* Original position */
+    visibility: visible;
+    transition: opacity 1s cubic-bezier(.5,0,.82,1), transform 1s cubic-bezier(.5,0,.82,1), visibility 0s;
+  
+}
+
+.about-1 h2, .product h2, .customer h2{
+    text-align: left;
+    color: white;
+    padding: 5px;
+    margin-left: 25px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+}
+
+.about-1 p, .product p, .customer p{
+    text-align: left;
+    color: white;
+    padding: 5px;
+    margin-left: 25px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+}
+.customer a{
+    color: white;
+}
+
+.BTT a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Michroma';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.back-to-top {
+    position: fixed;
+    z-index: 10;
+    right: 10px;
+    bottom: 10px;
+    display: none;
+}
+
+.back-to-top.show {
+    display: block;
+    /* Show when active */
+}
+
+/* bg-img */
+.main_wrapper {
+    overflow: hidden;
+}
+
+.demo {
+    position: relative;
+
+}
+
+/* .content_box{
+    height: 300px;
+} */
+
+.right-footer {
+    position: absolute;
+    right: -100px;
+    top: 0px;
+    display: flex;
+    justify-content: end;
+}
+
+.right-footer img {
+    width: 100%;
+}
+
+.demo2 {
+    height: 300px;
+    align-content: center;
+    padding-bottom: 100px;
+}
+
+.list_item {
+    padding: 0;
+}
+
+.content_box ul {
+    padding-left: 62px;
+    list-style: none; /* Remove default bullets */
+}
+
+.content_box ul li {
+    background-image: url('list-icon.png'); /* Replace with your image URL */
+    background-size: 20px 20px; /* Set the size of the image */
+    background-repeat: no-repeat;
+    background-position: left center; /* Position the image */
+    padding-left: 30px; /* Space for the image */
+    margin-bottom: 10px; /* Adds space between items */
+}
+.content_box_about ul li{
+    background-position: 24px 10px;   
+}
+.content_box_product ul li{
+    background-position: 30px 10px; 
+}
+
+
+/* Responsive */
+
+
+@media screen and (max-width: 854px) {
+    nav {
+        justify-content: space-between;
+        /* padding: 0 20px; */
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        position: relative; /* Ensure relative positioning for precise adjustments */
+        left: -15px;/* Move it slightly left (adjust value as needed) */
+    }
+
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 0px;
+        background-color: #333;
+        padding: 15px;
+        border-radius: 8px;
+        width: 25vw;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+    }
+
+    .menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu ul li {
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .menu ul li:last-child {
+        margin-bottom: 0;
+    }
+
+    .menu ul li a {
+        text-decoration: none;
+        color: white;
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 16px;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .menu ul li a:hover {
+        background-color: #555;
+        color: #2ddb81;
+    }
+
+    #menu-toggle:checked + .menu {
+        display: flex;
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width:868px) {
+    .hex-img1 {
+        width: 100vw;
+        
+    }
+}
