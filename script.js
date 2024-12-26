@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.navbar');
   const aboutLink = document.querySelector('a[href="#about"]');
   const productsLink = document.querySelector('a[href="#products"]');
-  const customersLink = document.querySelector('a[href="#customers"]'); // New link for customers
+  const customersLink = document.querySelector('a[href="#customers"]');
   const aboutSection = document.getElementById('about');
   const productsSection = document.getElementById('products');
-  const customersSection = document.getElementById('customers'); // New customers section
+  const customersSection = document.getElementById('customers');
   const aboutContent = document.querySelector('.about-1');
   const productsContent = document.querySelector('.product');
-  const customersContent = document.querySelector('.customer'); // New customers content
+  const customersContent = document.querySelector('.customer');
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.querySelector('.menu');
   const navbarHeight = navbar.offsetHeight; // Get the height of the navbar
@@ -36,58 +36,52 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
   };
 
+  // Function to show the target section and hide others
+  const showSection = (targetSection, targetContent) => {
+    aboutSection.style.display = 'none';
+    productsSection.style.display = 'none';
+    customersSection.style.display = 'none';
+
+    targetSection.style.display = 'block';
+
+    aboutContent.classList.remove('visible');
+    productsContent.classList.remove('visible');
+    customersContent.classList.remove('visible');
+
+    targetContent.classList.add('visible');
+  };
+
   // Event listener for "About" link
   aboutLink.addEventListener('click', (e) => {
     e.preventDefault();
 
+    // Show "About" section before scrolling
+    showSection(aboutSection, aboutContent);
+
     // Smoothly scroll to the "About" section with offset
     smoothScrollWithOffset(aboutSection);
-
-    // Hide "Products" and "Customers" sections and show "About" section
-    productsSection.style.display = 'none';
-    customersSection.style.display = 'none';
-    aboutSection.style.display = 'block';
-
-    // Add "visible" class to show the "About" section with transition
-    aboutContent.classList.add('visible');
-    productsContent.classList.remove('visible');
-    customersContent.classList.remove('visible');
   });
 
   // Event listener for "Products" link
   productsLink.addEventListener('click', (e) => {
     e.preventDefault();
 
+    // Show "Products" section before scrolling
+    showSection(productsSection, productsContent);
+
     // Smoothly scroll to the "Products" section with offset
     smoothScrollWithOffset(productsSection);
-
-    // Hide "About" and "Customers" sections and show "Products" section
-    aboutSection.style.display = 'none';
-    customersSection.style.display = 'none';
-    productsSection.style.display = 'block';
-
-    // Add "visible" class to show the "Products" section with transition
-    productsContent.classList.add('visible');
-    aboutContent.classList.remove('visible');
-    customersContent.classList.remove('visible');
   });
 
   // Event listener for "Customers" link
   customersLink.addEventListener('click', (e) => {
     e.preventDefault();
 
+    // Show "Customers" section before scrolling
+    showSection(customersSection, customersContent);
+
     // Smoothly scroll to the "Customers" section with offset
     smoothScrollWithOffset(customersSection);
-
-    // Hide "About" and "Products" sections and show "Customers" section
-    aboutSection.style.display = 'none';
-    productsSection.style.display = 'none';
-    customersSection.style.display = 'block';
-
-    // Add "visible" class to show the "Customers" section with transition
-    customersContent.classList.add('visible');
-    aboutContent.classList.remove('visible');
-    productsContent.classList.remove('visible');
   });
 
   // Toggle menu visibility for the hamburger menu
