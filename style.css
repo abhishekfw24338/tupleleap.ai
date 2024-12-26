@@ -31,7 +31,7 @@ nav {
     align-items: center;
     position: relative;
     z-index: 1;
-    cursor: pointer;
+   
 }
 
 /* Hamburger Nav bar */
@@ -66,6 +66,7 @@ nav a {
     font-weight: 400;
     font-size: 15px;
     line-height: 19.2px;
+    /* cursor: pointer; */
 }
 
 
@@ -320,11 +321,16 @@ nav a {
     .menu ul li {
         margin-bottom: 10px;
         text-align: left;
+        width: 100%;
     }
-
+    .menu ul ul {
+        width: 100%;
+        text-align: left;   
+    }
+   
     .menu ul li:last-child {
         margin-bottom: 0;
-    }
+    }   
 
     .menu ul li {
         text-decoration: none;
@@ -336,7 +342,7 @@ nav a {
         padding: 10px;
         border-radius: 5px;
         transition: background-color 0.3s ease, color 0.3s ease;
-        text-align: center;
+        text-align: left;
     }
 
     .menu ul li a:hover {
