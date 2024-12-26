@@ -127,7 +127,7 @@ nav a {
     text-align: center;
     margin-top: 10px;
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     width: 100vw;
 }
 
@@ -136,7 +136,7 @@ nav a {
 /* About */
 .left-footer {
     /* display: flex; */
-    margin-top: 120px;
+    margin-top: 50px;
     font-family: 'Michroma';
     align-items: end;
     position: relative;
@@ -178,7 +178,7 @@ nav a {
     padding: 5px;
     margin-left: 25px;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 24px;
     line-height: 32px;
 }
 .customer a{
@@ -255,19 +255,35 @@ nav a {
     background-position: left center; /* Position the image */
     padding-left: 30px; /* Space for the image */
     margin-bottom: 10px; /* Adds space between items */
+    background-position-y: 5px;
 }
 .content_box_about ul li{
     background-position: 24px 10px;   
+    background-position-y: 12px;
 }
 .content_box_product ul li{
     background-position: 30px 10px; 
+    background-position-y: 12px;
 }
 
 
 /* Responsive */
+
+
 @media screen and (max-width: 1000px){
     .demo2{
         height: auto;
+    }
+    .about-1, .product, .customer{
+        display: none;
+    }
+    .left-side img {
+        width: 100%;
+        height: 10vh;
+        object-fit: cover;
+    }
+    .left-side{
+        width: 230px !important;
     }
 }
 
@@ -297,11 +313,11 @@ nav a {
         flex-direction: column;
         position: absolute;
         top: 50px;
-        right: 0px;
+        right: 10px;
         background-color: #333;
         padding: 15px;
         border-radius: 8px;
-        width: 25vw;
+        width: 30vw;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         z-index: 10;
     }
@@ -323,7 +339,7 @@ nav a {
         margin-bottom: 0;
     }
 
-    .menu ul li a {
+    .menu ul li {
         text-decoration: none;
         color: white;
         font-family: 'Inter';
@@ -333,6 +349,7 @@ nav a {
         padding: 10px;
         border-radius: 5px;
         transition: background-color 0.3s ease, color 0.3s ease;
+        text-align: center;
     }
 
     .menu ul li a:hover {
@@ -343,12 +360,9 @@ nav a {
     #menu-toggle:checked + .menu {
         display: flex;
     }
+
+
 }
-
-
-
-
-
 
 
 @media screen and (max-width:868px) {
@@ -357,3 +371,26 @@ nav a {
         
     }
 }
+
+@media  screen and (max-width:768px) {
+    .about-1 h2, .product h2, .customer h2{
+        font-size: 16px;
+    }
+    .about-1 p, .product p, .customer p{
+        font-size: 12px;
+    }
+    .demo2{
+        width: 100vw;
+    }
+}
+
+@media  screen and (max-width:1600px) {
+    .about-1 h2, .product h2, .customer h2{
+        font-size: 20px;
+    }
+    .about-1 p, .product p, .customer p{
+        font-size: 16px;
+    }
+}
+
+
