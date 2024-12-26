@@ -153,6 +153,7 @@ nav a {
     visibility: hidden; /* Initially hidden */
     transition: opacity 1s cubic-bezier(.5,0,.82,1), transform 1s cubic-bezier(.5,0,.82,1), visibility 0s 1s; /*Smooth transition*/
    
+   
 }
 
 /* When the "visible" class is added, make the section visible */
@@ -161,6 +162,7 @@ nav a {
     transform: translateY(0); /* Original position */
     visibility: visible;
     transition: opacity 1s cubic-bezier(.5,0,.82,1), transform 1s cubic-bezier(.5,0,.82,1), visibility 0s;
+    
   
 }
 
@@ -172,6 +174,7 @@ nav a {
     font-weight: 400;
     font-size: 30px;
     line-height: 45px;
+    /* animation: type 1.5s steps(90) 1.5s 1 normal both, cursor 1s step-end infinite; */
 }
 
 .about-1 p, .product p, .customer p{
@@ -182,7 +185,28 @@ nav a {
     font-weight: 400;
     font-size: 24px;
     line-height: 32px;
+    width: 0;
+    animation: type 3.0s steps(30) 0.5s 1 normal both, cursor 1s step-end infinite;
 }
+
+@keyframes type {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes cursor {
+    from {
+      border-right-color: rgba(255, 255, 255, 1); /* White color */
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+  
 .customer a{
     color: white;
 }
