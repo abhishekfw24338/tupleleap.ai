@@ -254,9 +254,11 @@ nav a {
     background-size: 20px 20px; /* Set the size of the image */
     background-repeat: no-repeat;
     background-position: left center; /* Position the image */
-    padding-left: 30px; /* Space for the image */
+    padding-left: 50px; /* Space for the image */
     margin-bottom: 10px; /* Adds space between items */
     background-position-y: 5px;
+    background-position-x: 22px;
+
 }
 .content_box_about ul li{
     background-position: 24px 10px;   
