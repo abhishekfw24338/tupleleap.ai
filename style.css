@@ -196,6 +196,7 @@ nav a {
     font-size: 24px;
     line-height: 32px;
     width: 0;
+    border-right: 2px solid;
     animation:typewriter 5s steps(50) 1s 1 normal both, blinkingCursor 500ms steps(50) infinite normal;
     animation-delay: 0s;
 }
