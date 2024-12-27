@@ -31,7 +31,7 @@ nav {
     align-items: center;
     position: relative;
     z-index: 1;
-
+   
 }
 
 /* Hamburger Nav bar */
@@ -146,37 +146,27 @@ nav a {
 }
 
 /* About and Product Sections */
-.about-1,
-.product,
-.customer {
+.about-1, .product, .customer{
     width: 85%;
     opacity: 0;
-    transform: translateY(20px);
-    /* Initial position for smooth transition */
-    visibility: hidden;
-    /* Initially hidden */
-    transition: opacity 1s cubic-bezier(.5, 0, .82, 1), transform 1s cubic-bezier(.5, 0, .82, 1), visibility 0s 1s;
-    /*Smooth transition*/
-
-
+    transform: translateY(20px); /* Initial position for smooth transition */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 1s cubic-bezier(.5,0,.82,1), transform 1s cubic-bezier(.5,0,.82,1), visibility 0s 1s; /*Smooth transition*/
+   
+   
 }
 
 /* When the "visible" class is added, make the section visible */
-.about-1.visible,
-.product.visible,
-.customer.visible {
+.about-1.visible, .product.visible, .customer.visible{
     opacity: 1;
-    transform: translateY(0);
-    /* Original position */
+    transform: translateY(0); /* Original position */
     visibility: visible;
-    transition: opacity 1s cubic-bezier(.5, 0, .82, 1), transform 1s cubic-bezier(.5, 0, .82, 1), visibility 0s;
-
-
+    transition: opacity 1s cubic-bezier(.5,0,.82,1), transform 1s cubic-bezier(.5,0,.82,1), visibility 0s;
+    
+  
 }
 
-.about-1 h2,
-.product h2,
-.customer h2 {
+.about-1 h2, .product h2, .customer h2{
     text-align: left;
     color: white;
     padding: 5px;
@@ -184,9 +174,11 @@ nav a {
     font-weight: 400;
     font-size: 30px;
     line-height: 45px;
-    /* animation: type 1.5s steps(90) 1.5s 1 normal both, cursor 1s step-end infinite; */
+
 }
 
+
+/* Basic styling for the text */
 .about-1 p, .product p, .customer p {
     text-align: left;
     color: white;
@@ -195,38 +187,59 @@ nav a {
     font-weight: 400;
     font-size: 24px;
     line-height: 32px;
-    width: 0;
-    border-right: 2px solid;
-    animation:typewriter 5s steps(50) 1s 1 normal both, blinkingCursor 500ms steps(50) infinite normal;
-    animation-delay: 0s;
+
+    overflow: hidden;
+    width: 100%;
+    white-space: normal;  /* Prevent text from wrapping initially */
+    opacity: 0;           /* Hide text initially */
+    width: 0;             /* Initially hide the text */
+    box-sizing: border-box; /* Prevent overflow */
 }
 
-
-
-
-
-
+/* Typewriter effect keyframes */
 @keyframes typewriter {
     from {
         width: 0;
     }
-
     to {
         width: 100%;
     }
 }
 
-@keyframes blinkingCursor {
-    from {
-        border-right-color: rgba(255, 255, 255, .75);
-    }
+/* Applying animation to lines */
+#line1 {
+    animation: typewriter 4s steps(40) 1s forwards, fadeIn 1s 4s forwards;
+}
 
-    to {
-        border-right-color: transparent;
-    }
-} 
+#line2 {
+    animation: typewriter 4s steps(40) 6s forwards, fadeIn 1s 6s forwards;
+}
 
-.customer a {
+/* Fade-in effect for the lines after they are revealed */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .about-1 p, .product p, .customer p {
+        font-size: 18px;
+        margin-left: 10px;
+        white-space: normal;  /* Allow text to wrap */
+    }
+}
+
+
+
+    
+
+  
+.customer a{
     color: white;
 }
 
@@ -291,34 +304,26 @@ nav a {
 
 .content_box ul {
     padding-left: 0px;
-    list-style: none;
-    /* Remove default bullets */
+    list-style: none; /* Remove default bullets */
 }
 
 .content_box ul li {
-    background-image: url('list-icon.png');
-    /* Replace with your image URL */
-    background-size: 20px 20px;
-    /* Set the size of the image */
+    background-image: url('list-icon.png'); /* Replace with your image URL */
+    background-size: 20px 20px; /* Set the size of the image */
     background-repeat: no-repeat;
-    background-position: left center;
-    /* Position the image */
-    padding-left: 50px;
-    /* Space for the image */
-    margin-bottom: 10px;
-    /* Adds space between items */
+    background-position: left center; /* Position the image */
+    padding-left: 50px; /* Space for the image */
+    margin-bottom: 10px; /* Adds space between items */
     background-position-y: 5px;
     background-position-x: 22px;
 
 }
-
-.content_box_about ul li {
-    background-position: 24px 10px;
+.content_box_about ul li{
+    background-position: 24px 10px;   
     background-position-y: 12px;
 }
-
-.content_box_product ul li {
-    background-position: 30px 10px;
+.content_box_product ul li{
+    background-position: 30px 10px; 
     background-position-y: 12px;
 }
 
@@ -338,10 +343,8 @@ nav a {
         flex-direction: column;
         gap: 4px;
         cursor: pointer;
-        position: relative;
-        /* Ensure relative positioning for precise adjustments */
-        left: -15px;
-        /* Move it slightly left (adjust value as needed) */
+        position: relative; /* Ensure relative positioning for precise adjustments */
+        left: -15px;/* Move it slightly left (adjust value as needed) */
     }
 
     .hamburger div {
@@ -355,14 +358,14 @@ nav a {
         flex-direction: column;
         position: absolute;
         top: 75px;
-        right: 0;
+        right: 0px;
         background-color: #333;
         padding: 15px;
         border-radius: 8px;
-        width: 100vw;
+        width: 90vw;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         z-index: 10;
-        left: 0;
+        left: 7px;
     }
 
     .menu ul {
@@ -378,15 +381,14 @@ nav a {
         text-align: left;
         width: 100%;
     }
-
     .menu ul ul {
         width: 100%;
-        text-align: left;
+        text-align: left;   
     }
-
+   
     .menu ul li:last-child {
         margin-bottom: 0;
-    }
+    }   
 
     .menu ul li {
         text-decoration: none;
@@ -406,27 +408,21 @@ nav a {
         color: #2ddb81;
     }
 
-    #menu-toggle:checked+.menu {
+    #menu-toggle:checked + .menu {
         display: flex;
     }
-
-    .demo2 {
+    .demo2{
         height: auto;
     }
-
-    .about-1,
-    .product,
-    .customer {
+    .about-1, .product, .customer{
         display: none;
     }
-
     .left-side img {
 
         width: 95%;
         padding-left: 8px;
     }
-
-    .bg-login {
+    .bg-login{
         background-color: #333333;
     }
 
@@ -436,42 +432,29 @@ nav a {
 @media screen and (max-width:868px) {
     .hex-img1 {
         width: 100vw;
-
+        
     }
 }
 
-@media screen and (max-width:768px) {
-
-    .about-1 h2,
-    .product h2,
-    .customer h2 {
+@media  screen and (max-width:768px) {
+    .about-1 h2, .product h2, .customer h2{
         font-size: 16px;
     }
-
-    .about-1 p,
-    .product p,
-    .customer p {
+    .about-1 p, .product p, .customer p{
         font-size: 12px;
     }
-
-    .demo2 {
+    .demo2{
         width: 100vw;
     }
 }
 
-@media screen and (max-width:1600px) {
-
-    .about-1 h2,
-    .product h2,
-    .customer h2 {
+@media  screen and (max-width:1600px) {
+    .about-1 h2, .product h2, .customer h2{
         font-size: 20px;
     }
-
-    .about-1 p,
-    .product p,
-    .customer p {
+    .about-1 p, .product p, .customer p{
         font-size: 14px;
     }
 }
 
-/* This is old version */
+
