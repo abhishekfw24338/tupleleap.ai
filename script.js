@@ -44,43 +44,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     targetSection.style.display = 'block';
 
+    // Remove the "visible" class from all sections
     aboutContent.classList.remove('visible');
     productsContent.classList.remove('visible');
     customersContent.classList.remove('visible');
 
+    // Add the "visible" class to the target content to trigger animation
     targetContent.classList.add('visible');
   };
 
   // Event listener for "About" link
   aboutLink.addEventListener('click', (e) => {
     e.preventDefault();
-
-    // Show "About" section before scrolling
     showSection(aboutSection, aboutContent);
-
-    // Smoothly scroll to the "About" section with offset
     smoothScrollWithOffset(aboutSection);
   });
 
   // Event listener for "Products" link
   productsLink.addEventListener('click', (e) => {
     e.preventDefault();
-
-    // Show "Products" section before scrolling
     showSection(productsSection, productsContent);
-
-    // Smoothly scroll to the "Products" section with offset
     smoothScrollWithOffset(productsSection);
   });
 
   // Event listener for "Customers" link
   customersLink.addEventListener('click', (e) => {
     e.preventDefault();
-
-    // Show "Customers" section before scrolling
     showSection(customersSection, customersContent);
-
-    // Smoothly scroll to the "Customers" section with offset
     smoothScrollWithOffset(customersSection);
   });
 
@@ -102,4 +92,20 @@ document.addEventListener('DOMContentLoaded', () => {
       menu.style.display = 'none';
     }
   });
+});
+document.addEventListener("DOMContentLoaded", function() {
+  let lines = document.querySelectorAll('.line');
+  
+  function startTypewriterEffect() {
+      let delay = 0;
+      lines.forEach((line, index) => {
+          setTimeout(() => {
+              line.style.width = '100%'; // Trigger the typewriter animation
+              line.style.opacity = '1';  // Reveal the line
+          }, delay);
+          delay += 5000; // Add a delay between each line's appearance
+      });
+  }
+
+  startTypewriterEffect(); // Start the animation after the page is loaded
 });
