@@ -208,11 +208,11 @@ nav a {
 
 /* Applying animation to lines */
 #line1 {
-    animation: typewriter 4s steps(40) 1s forwards, fadeIn 1s 1s forwards;
+    animation: typewriter 2s steps(40) 1s forwards, fadeIn 1s 1s forwards;
 }
 
 #line2 {
-    animation: typewriter 4s steps(40) 6s forwards, fadeIn 1s 3s forwards;
+    animation: typewriter 3s steps(40) 2s forwards, fadeIn 1s 3s forwards;
 }
 
 /* Fade-in effect for the lines after they are revealed */
@@ -225,14 +225,6 @@ nav a {
     }
 }
 
-/* Responsive styles for smaller screens */
-@media (max-width: 768px) {
-    .about-1 p, .product p, .customer p {
-        font-size: 18px;
-        margin-left: 10px;
-        white-space: normal;  /* Allow text to wrap */
-    }
-}
 
 
 
