@@ -93,23 +93,51 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => startTypewriterAnimation(targetContent), 100);
   };
 
+  // Function to close hamburger menu
+  const closeHamburgerMenu = () => {
+    menuToggle.checked = false;
+    menu.style.display = 'none';
+  };
+
   // Event listeners for navigation links
   aboutLink.addEventListener('click', (e) => {
     e.preventDefault();
     showSection(aboutSection, aboutContent);
     smoothScrollWithOffset(aboutSection);
+    closeHamburgerMenu();
   });
 
   productsLink.addEventListener('click', (e) => {
     e.preventDefault();
     showSection(productsSection, productsContent);
     smoothScrollWithOffset(productsSection);
+    closeHamburgerMenu();
   });
 
   customersLink.addEventListener('click', (e) => {
     e.preventDefault();
     showSection(customersSection, customersContent);
     smoothScrollWithOffset(customersSection);
+    closeHamburgerMenu();
+  });
+
+  // Close menu when clicking anywhere in the menu items
+  menu.addEventListener('click', (e) => {
+    if (window.innerWidth <= 854) {
+      closeHamburgerMenu();
+    }
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 854) {
+      const isClickInsideNavbar = navbar.contains(e.target);
+      const isClickOnHamburger = e.target.closest('.hamburger');
+      
+      if (!isClickInsideNavbar && !isClickOnHamburger) {
+        closeHamburgerMenu();
+      }
+    }
   });
 
   // Hamburger menu functionality
@@ -117,22 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
     menu.style.display = menuToggle.checked ? 'flex' : 'none';
   });
 
-  // Close hamburger menu when clicking outside
-  document.addEventListener('click', (e) => {
-    const isClickInsideMenu = menu.contains(e.target) || menuToggle.contains(e.target);
-    if (!isClickInsideMenu) {
+  // Window resize handler
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 854) {
       menuToggle.checked = false;
+      menu.style.display = 'flex';
+    } else if (window.innerWidth <= 854) {
       menu.style.display = 'none';
     }
   });
 
-  // Window resize handler
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 854) {
-      menu.style.display = 'flex';
-      menuToggle.checked = false;
-    } else {
-      menu.style.display = menuToggle.checked ? 'flex' : 'none';
-    }
+  // Store original text content on load
+  document.querySelectorAll('.typewriter-line').forEach(line => {
+    line.setAttribute('data-original-text', line.textContent);
+    line.textContent = '';
   });
 });
