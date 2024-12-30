@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.querySelector('.menu');
   const navbarHeight = navbar.offsetHeight;
-  const typingSpeed = 10;
-  const lineDelay = 1000;
+  const typingSpeed = 5;
+  const lineDelay = 500;
 
   if (!goToTopButton || !navbar || !aboutLink || !aboutSection || !productsSection || !customersSection || !aboutContent || !productsContent || !customersContent) {
     console.error("Required elements not found in the DOM.");
