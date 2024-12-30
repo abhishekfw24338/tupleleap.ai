@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.querySelector('.menu');
   const navbarHeight = navbar.offsetHeight;
-  const typingSpeed = 5;
+  const typingSpeed = 10;
   const lineDelay = 500;
 
   if (!goToTopButton || !navbar || !aboutLink || !aboutSection || !productsSection || !customersSection || !aboutContent || !productsContent || !customersContent) {
