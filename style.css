@@ -197,7 +197,7 @@ nav a {
 .typewriter-line {
     opacity: 0;
     visibility: hidden;
-    white-space: nowrap;
+    white-space: normal;
     overflow: hidden;
     display: block;
     position: relative;
