@@ -187,44 +187,39 @@ nav a {
     font-weight: 400;
     font-size: 24px;
     line-height: 32px;
+    
+  
+}
 
+/* Default styles for all screen sizes */
+
+
+.typewriter-line {
+    opacity: 0;
+    visibility: hidden;
+    white-space: nowrap;
     overflow: hidden;
-    width: 100%;
-    white-space: normal;  /* Prevent text from wrapping initially */
-    opacity: 0;           /* Hide text initially */
-    width: 0;             /* Initially hide the text */
-    box-sizing: border-box; /* Prevent overflow */
+    display: block;
+    position: relative;
+    margin-bottom: 10px; /* Add space between lines */
 }
 
-/* Typewriter effect keyframes */
-@keyframes typewriter {
-    from {
-        width: 0;
+.typewriter-line.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease, visibility 0s;
+}
+
+/* Styles for smaller screens (mobile and tablets) */
+@media (max-width: 768px) {
+    .typewriter-container {
+        font-size: 14px; /* Smaller font size for mobile */
     }
-    to {
-        width: 100%;
-    }
-}
 
-/* Applying animation to lines */
-#line1 {
-    animation: typewriter 2s steps(40) 1s forwards, fadeIn 1s 1s forwards;
-}
-
-#line2 {
-    animation: typewriter 3s steps(40) 2s forwards, fadeIn 1s 3s forwards;
-}
-
-/* Fade-in effect for the lines after they are revealed */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
+    .typewriter-line {
+        white-space: normal; /* Allow wrapping text on small screens */
     }
 }
-
 
 
 
