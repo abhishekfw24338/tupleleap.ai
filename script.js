@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.querySelector('.menu');
   const navbarHeight = navbar.offsetHeight; // Get the height of the navbar
+  const lines = document.querySelectorAll("#typewriter-container p");
+  const typingSpeed = 10; // Speed for typing each character (ms)
+  const lineDelay = 1000;  // Delay between lines (ms)
 
   if (!goToTopButton || !navbar || !aboutLink || !aboutSection || !productsSection || !customersSection || !aboutContent || !productsContent || !customersContent) {
     console.error("Required elements not found in the DOM.");
@@ -38,19 +41,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function to show the target section and hide others
   const showSection = (targetSection, targetContent) => {
+    // Hide all sections
     aboutSection.style.display = 'none';
     productsSection.style.display = 'none';
     customersSection.style.display = 'none';
 
+    // Show only the target section
     targetSection.style.display = 'block';
 
-    // Remove the "visible" class from all sections
-    aboutContent.classList.remove('visible');
-    productsContent.classList.remove('visible');
-    customersContent.classList.remove('visible');
+    // Reset the typewriter animation for all sections first
+    resetTypewriterAnimation();
 
-    // Add the "visible" class to the target content to trigger animation
+    // Trigger the animation only for the selected section
     targetContent.classList.add('visible');
+    startTypewriterAnimation(targetContent);
+  };
+
+  // Function to reset the typewriter animation by removing the visible class
+  const resetTypewriterAnimation = () => {
+    const allContentSections = [aboutContent, productsContent, customersContent];
+    allContentSections.forEach(content => {
+      content.classList.remove('visible');
+    });
+  };
+
+  // Function to start the typewriter animation on a specific section
+  const startTypewriterAnimation = (sectionContent) => {
+    const lines = sectionContent.querySelectorAll('.typewriter-line');
+    let currentLine = 0;
+
+    const typeLine = (lineElement, text, index) => {
+      let currentText = '';
+      let charIndex = 0;
+
+      const typeNextChar = () => {
+        if (charIndex < text.length) {
+          currentText += text.charAt(charIndex);
+          lineElement.innerHTML = currentText;
+          charIndex++;
+          setTimeout(typeNextChar, typingSpeed);
+        }
+      };
+
+      typeNextChar();
+    };
+
+    const showNextLine = () => {
+      if (currentLine < lines.length) {
+        const line = lines[currentLine];
+        line.classList.add('visible'); // Make the current line visible
+        typeLine(line, line.textContent, currentLine); // Start typing the line
+
+        currentLine++;
+
+        // Wait for the typing to finish, then show the next line
+        setTimeout(showNextLine, lineDelay + (lines[currentLine - 1].textContent.length * typingSpeed));
+      }
+    };
+
+    // Start the typewriter animation for the target section
+    showNextLine();
   };
 
   // Event listener for "About" link
@@ -92,20 +142,4 @@ document.addEventListener('DOMContentLoaded', () => {
       menu.style.display = 'none';
     }
   });
-});
-document.addEventListener("DOMContentLoaded", function() {
-  let lines = document.querySelectorAll('.line');
-  
-  function startTypewriterEffect() {
-      let delay = 0;
-      lines.forEach((line, index) => {
-          setTimeout(() => {
-              line.style.width = '100%'; // Trigger the typewriter animation
-              line.style.opacity = '0';  // Reveal the line
-          }, delay);
-          delay += 5000; // Add a delay between each line's appearance
-      });
-  }
-
-  startTypewriterEffect(); // Start the animation after the page is loaded
 });
