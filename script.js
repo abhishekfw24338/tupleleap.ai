@@ -117,19 +117,22 @@ document.addEventListener('DOMContentLoaded', () => {
     menu.style.display = menuToggle.checked ? 'flex' : 'none';
   });
 
-  // Window resize handler
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 854) {
+  // Close hamburger menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const isClickInsideMenu = menu.contains(e.target) || menuToggle.contains(e.target);
+    if (!isClickInsideMenu) {
       menuToggle.checked = false;
-      menu.style.display = 'flex';
-    } else if (window.innerWidth <= 854) {
       menu.style.display = 'none';
     }
   });
 
-  // Store original text content on load
-  document.querySelectorAll('.typewriter-line').forEach(line => {
-    line.setAttribute('data-original-text', line.textContent);
-    line.textContent = '';
+  // Window resize handler
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 854) {
+      menu.style.display = 'flex';
+      menuToggle.checked = false;
+    } else {
+      menu.style.display = menuToggle.checked ? 'flex' : 'none';
+    }
   });
 });
