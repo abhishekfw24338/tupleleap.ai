@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
       lines.forEach((line, index) => {
           setTimeout(() => {
               line.style.width = '100%'; // Trigger the typewriter animation
-              line.style.opacity = '1';  // Reveal the line
+              line.style.opacity = '0';  // Reveal the line
           }, delay);
           delay += 5000; // Add a delay between each line's appearance
       });
