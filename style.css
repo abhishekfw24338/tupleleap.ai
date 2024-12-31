@@ -47,7 +47,9 @@ nav a {
     text-decoration: none;
     color: white;
 }
-
+.left-side{
+    width: 50vw;
+}
 
 .left-side img {
     width: 140px;
@@ -553,8 +555,8 @@ nav a {
 
 
     .menu {
-        font-size: 20px;
-        line-height: 23px;
+        font-size: 15px;
+        line-height: 15px;
 
     }
 
@@ -563,7 +565,7 @@ nav a {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 100px;
+        gap: 70px;
     }
 
     .hex-img1 {
@@ -579,7 +581,7 @@ nav a {
     }
 
     .bg-login {
-        width: 95px;
+        width: auto;
         height: auto;
     }
 
@@ -605,6 +607,9 @@ nav a {
     .content_box ul li {
         background-size: 30px 30px;
     }
+    .left-side{
+        width: 50%;
+    }
 }
 
 @media screen and ((min-width:2700px) and (max-width:5465px)) {
@@ -619,6 +624,9 @@ nav a {
         font-size: 30px;
         line-height: 35px;
 
+    }
+    .left-side{
+        width: 50%;
     }
 
     .rl ul:first-child {
