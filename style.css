@@ -26,12 +26,13 @@ body {
 
 nav {
     /* background-color: black; */
-    width: 100vw;
+    width: 90vw;
     height: 10vh;
     display: flex;
     align-items: center;
     position: relative;
     z-index: 1;
+    margin: auto;
 
 }
 
@@ -53,8 +54,7 @@ nav a {
 
 .left-side img {
     width: 140px;
-    padding-top: 10px;
-    padding-left: 50px;
+  
 }
 
 .menu {
@@ -82,15 +82,15 @@ nav a {
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    /* gap: 100px; */
+    justify-content: flex-end;
+    gap: 40px;
 }
 
 .rl ul ul {
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 0px;
 }
 
@@ -108,7 +108,7 @@ nav a {
 } */
 
 .bg-login {
-    width: 60px;
+    width: 61px;
     background-color: #262626E5;
     border-radius: 20px;
     text-align: center;
@@ -450,7 +450,7 @@ nav a {
     .left-side img {
 
         width: 95%;
-        padding-left: 8px;
+    
     }
 
     .bg-login {
@@ -502,7 +502,7 @@ nav a {
 }
 
 /* For large screen size */
-@media screen and (min-width:1400) {}
+
 
 @media screen and (min-width:4098px) {
     .main_wrapper {
@@ -511,7 +511,7 @@ nav a {
 
     .left-side img {
         width: 260px;
-        margin-left: 60px;
+        
     }
 
 
@@ -547,7 +547,7 @@ nav a {
 @media screen and ((min-width:1400px) and (max-width:2600px)) {
     .left-side img {
         width: 140px;
-        margin-left: 60px;
+    
         
     }
 
@@ -562,7 +562,7 @@ nav a {
         list-style: none;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         gap: 70px;
     }
 
@@ -613,7 +613,7 @@ nav a {
 @media screen and ((min-width:2700px) and (max-width:5465px)) {
     .left-side img {
         width: 260px;
-        margin-left: 60px;
+     
       
     }
 
@@ -631,7 +631,7 @@ nav a {
         list-style: none;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         gap: 100px;
     }
 
