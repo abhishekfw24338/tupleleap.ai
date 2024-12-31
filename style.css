@@ -17,10 +17,11 @@ body {
     top: 0;
     left: 0;
     min-height: 100vh;
-    width: 100vw;
-    /* background-size: cover; */
+    width: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     overflow-x: hidden;
+    /* object-fit: ; */
 }
 
 nav {
@@ -50,7 +51,7 @@ nav a {
 
 .left-side img {
     width: 140px;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 50px;
     height: 25px;
 }
@@ -76,11 +77,19 @@ nav a {
     z-index: 1;
 }
 
-.rl ul {
+.rl ul:first-child {
     list-style: none;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    /* gap: 100px; */
+}
+.rl ul ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
 }
 
 /* .rr {
@@ -131,6 +140,7 @@ nav a {
     position: relative;
     /* z-index: 1; */
     width: 100vw;
+    
 }
 
 /* Footer */
@@ -435,7 +445,7 @@ nav a {
     }
 }
 
-@media  screen and (max-width:1600px) {
+@media  screen and (max-width:1400px) {
     .about-1 h2, .product h2, .customer h2{
         font-size: 20px;
     }
@@ -444,4 +454,149 @@ nav a {
     }
 }
 
+/* For large screen size */
+@media screen and (min-width:1400) {
+   
+}
+
+@media screen and (min-width:4098px){
+    .main_wrapper{
+        overflow: visible;
+    }
+
+    .left-side img {
+        width: 260px;
+        margin-left: 60px;
+        height: 50px;
+    }
+   
+   
+    
+}
+
+
+/* @media screen and (min-width:2730px ){
+    .left-side img {
+        width: 245px!important;
+        margin-left: 70px!important;
+        height: 45px!important;
+    }
+   
+   
+    .menu {
+        font-size: 30px!important;
+        line-height: 20px!important;
+       
+    }
+    .bg-login{
+        width: 100px;
+    }
+    .heading{
+        font-size: 45px;
+    }
+    .BTT a{
+        font-size: 25px;    
+    }
+   
+} */
+
+@media  screen and ((min-width:1400px) and (max-width:2600px)){
+    .left-side img {
+        width: 140px;
+        margin-left: 60px;
+        height: 30px;
+    }
+   
+   
+    .menu {
+        font-size: 20px;
+        line-height: 23px;
+       
+    }
+    .rl ul:first-child {
+        list-style: none;
+         display: flex;
+         align-items: center;
+        justify-content:center;
+        gap: 100px;
+    }
+    .hex-img1{
+        width: 40vw;
+    }
+    .hex-img{
+        margin-top: 35px;
+    }
+    .heading{
+        font-size: 40px;
+    }
+    .bg-login{
+        width: 95px;
+    }
+   .about-1, .product, .customer h2{
+    font-size: 35px;
+    line-height: 60px;
+   }
+   .about-1, .product p{
+    font-size: 25px;
+    line-height: 40px;
+   }
+   .customer a{
+    font-size: 25px;
+        line-height: 36px;
+        margin-left: 25px;
+   }
+   .content_box ul li {
+    background-size: 30px 30px;
+}
+}
+@media screen and (min-width:2700px) {
+    .left-side img {
+        width: 260px;
+        margin-left: 60px;
+        height: 45px;
+    }
+   
+   
+    .menu {
+        font-size: 30px;
+        line-height: 35px;
+       
+    }
+    .rl ul:first-child {
+        list-style: none;
+         display: flex;
+         align-items: center;
+        justify-content:center;
+        gap: 100px;
+    }
+    .hex-img1{
+        width: 50vw;
+    }
+    .hex-img{
+        margin-top: 35px;
+    }
+    .heading{
+        font-size: 65px;
+    }
+    .bg-login{
+        width: 95px; 
+        height:auto;   
+    }
+   .about-1 h2, .product h2, .customer h2{
+    font-size: 45px;
+    line-height: 60px;
+   }
+   .about-1 p, .product p{
+    font-size: 25px;
+    line-height: 40px;
+   }
+   .customer a{
+    font-size: 25px;
+        line-height: 36px;
+        margin-left: 25px;
+   }
+   .content_box ul li {
+    background-size: 30px 30px;
+}
+}
 
