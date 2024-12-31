@@ -585,16 +585,16 @@ nav a {
         height: auto;
     }
 
-    .about-1,
-    .product,
+    .about-1 h2,
+    .product h2,
     .customer h2 {
         font-size: 35px;
         line-height: 60px;
     }
 
-    .about-1,
+    .about-1 p,
     .product p {
-        font-size: 25px;
+        font-size: 18px;
         line-height: 40px;
     }
 
