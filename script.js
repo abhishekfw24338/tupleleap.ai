@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.querySelector('.menu');
   const navbarHeight = navbar.offsetHeight;
-  const typingSpeed = 10;
+  const typingSpeed = 5;
   const lineDelay = 500;
 
   if (!goToTopButton || !navbar || !aboutLink || !aboutSection || !productsSection || !customersSection || !aboutContent || !productsContent || !customersContent) {
@@ -93,51 +93,23 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => startTypewriterAnimation(targetContent), 100);
   };
 
-  // Function to close hamburger menu
-  const closeHamburgerMenu = () => {
-    menuToggle.checked = false;
-    menu.style.display = 'none';
-  };
-
   // Event listeners for navigation links
   aboutLink.addEventListener('click', (e) => {
     e.preventDefault();
     showSection(aboutSection, aboutContent);
     smoothScrollWithOffset(aboutSection);
-    closeHamburgerMenu();
   });
 
   productsLink.addEventListener('click', (e) => {
     e.preventDefault();
     showSection(productsSection, productsContent);
     smoothScrollWithOffset(productsSection);
-    closeHamburgerMenu();
   });
 
   customersLink.addEventListener('click', (e) => {
     e.preventDefault();
     showSection(customersSection, customersContent);
     smoothScrollWithOffset(customersSection);
-    closeHamburgerMenu();
-  });
-
-  // Close menu when clicking anywhere in the menu items
-  menu.addEventListener('click', (e) => {
-    if (window.innerWidth <= 854) {
-      closeHamburgerMenu();
-    }
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 854) {
-      const isClickInsideNavbar = navbar.contains(e.target);
-      const isClickOnHamburger = e.target.closest('.hamburger');
-      
-      if (!isClickInsideNavbar && !isClickOnHamburger) {
-        closeHamburgerMenu();
-      }
-    }
   });
 
   // Hamburger menu functionality
